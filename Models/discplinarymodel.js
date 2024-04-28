@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
 const schema = mongoose.Schema;
-const DisplinarySchema = new schema({
-    studentName:{type:String, reqiured: true},
+const DiscplinarySchema = new schema({
+    studentID:{type:Number, reqiured: true},
     tittle: {type:String, reqiured: true},
     Description: {type:String, reqiured: true},
     
     
 })
 
-export const DisplinaryModel = mongoose.model('Displinary',DisplinarySchema)
+export const DiscplinaryModel = mongoose.model('Discplinary',DiscplinarySchema)

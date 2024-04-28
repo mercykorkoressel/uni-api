@@ -1,39 +1,48 @@
-import { Router} from "express";
-import { addAchievement, deleteAchievement, getAchievement, patchAchievement } from "../controllers/achievementControllers.js";
-import { addExperience, deleteExperience, getExperience, patchExperience } from "../controllers/experiencesController.js";
-import { addPost, deletePost, getPost, patchPost } from "../controllers/postsControllers.js";
+import { DiscplinaryModel } from "../Models/discplinarymodel.js";
 
+export  const addDiscplinary = async (req, res, next) => {
+    try {
+       // Add Recipe to the database
+       const createDiscplinary = await DiscplinaryModel.create(req.body);
+       // Return response
+       res.status(201).json(createDiscplinary);
+    } catch (error) {
+       // Forward to express error handler
+       next(error);
+    }
+ }
+export  const getDiscplinary = async (req, res, next) => {
+    try {
+       // Add Recipe to the database
+       const getDiscplinary = await DiscplinaryModel.find();
+       // Return response
+       res.status(200).json(getDiscplinary);
+    } catch (error) {
+       // Forward to express error handler
+       next(error);
+    }
+ }
 
+ export  const updateDiscplinary = async (req, res, next) => {
+    try {
+       // Add Recipe to the database
+       const updateDiscplinary = await DiscplinaryModel.findByIdAndUpdate(req.params.id, req.body);
+       // Return response
+       res.status(200).json(updateDiscplinary);
+    } catch (error) {
+       // Forward to express error handler
+       next(error);
+    }
+ }
 
- export const router = Router();
-
-router.post('/add-achievement', addAchievement)
-
-router.post('/add-experience', addExperience)
-
-router.post('/add-post', addPost)
-
-
-router.get('/achievement', getAchievement)
-
-router.get('/experience', getExperience)
-
-router.get('/post', getPost)
-
-
-router.patch('/achievement/:id', patchAchievement)
-
-router.patch('/experience/:id',patchExperience)
-
-router.patch('/post/:id', patchPost)
-
-
-router.delete('/achievement/:id', deleteAchievement)
-
-router.delete('/experience/:id', deleteExperience )
-
-router.delete('/post/:id', deletePost )
-
-
-
- 
+ export  const deleteDiscplinary = async (req, res, next) => {
+   try {
+      // Add  to the database
+      const deleteDiscplinary = await DiscplinaryModel.findByIdAndDelete(req.params.id);
+      // Return response
+      res.status(200).json(deleteDiscplinary);
+   } catch (error) {
+      // Forward to express error handler
+      next(error);
+   }
+}

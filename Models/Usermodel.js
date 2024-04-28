@@ -4,11 +4,11 @@ const schema = mongoose.Schema;
 const UserSchema = new schema({
     firstName: {type:String, required: true},
     Surname: {type:String, required: true},
-    Email: {type:String, required: true},
-    ID:{type:String, required: true},
-    Level: {type:String, },
+    email: {type:String, required: true},
+    ID:{type:String, },
+    level: {type:String, },
     password: {type:String, required: true},
-    Course: {type:String, required: true},
+    Course: {type:String, },
     createdAt: {type: Date, default: Date.now()}
     
 })
